@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <serverhostinfo id="1"
+					host="127.0.0.1" 
+					port="10081"
+					keepalivechecktime="1200"
+					sendingcycle="100"
+	/>
+	
+	<serverwebhostinfo host="127.0.0.1" port="7790" />
+	
+	<resourceinfo path="../DataTable" />
+	
+	<mysqlinfo server="127.0.0.1" 
+			   uid="dhl...."
+			   pwd="xh..."
+			   database=""
+			   sslmode="none"
+			   allow_user_variables="true"
+			   database_create="false"
+	/>
+	
+	
+    <lbdinfo uri="https://test-api-blockchain.line-beta.me" 
+			  dappid="6fee1......." 
+			  apikey="a17401......." 
+			  apisecret="f5e4b7......." 
+			  itemtoken_contractid="ca8b...." 
+			  servicetoken_contractid="963..."
+			  operaddr="tlink16......."
+			  secretkey="S+738l......."
+			  
+	/>
+	
+	<ldcinfo uri="https://api.line-beta.me" />
+</root>	

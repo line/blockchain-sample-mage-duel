@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BF450AD-4D83-416B-8F25-8168E52CBC3C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TCGGameService</RootNamespace>
+    <AssemblyName>TCGGameService</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C5">
+      <HintPath>..\..\..\packages\C5.2.5.3\lib\net45\C5.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib">
+      <HintPath>..\..\..\packages\Dapper.Contrib.1.50.5\lib\net451\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="DataBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\DLL\DataBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\DLL\Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\packages\MySql.Data.8.0.13\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\packages\NLog.4.5.10\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Resource, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\CommonLib\DLL\Resource.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TcpNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\DLL\TcpNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBase\Repository\ITrading.cs" />
+    <Compile Include="DataBase\Repository\Trading.cs" />
+    <Compile Include="DataBase\Table\TblCurrency.cs" />
+    <Compile Include="DataBase\Table\TblDeck.cs" />
+    <Compile Include="DataBase\Table\TblTrade.cs" />
+    <Compile Include="DataBase\Table\TblTradeHistory.cs" />
+    <Compile Include="DataBase\Table\TblShopSlot.cs" />
+    <Compile Include="DataBase\Table\TblShopSlotCard.cs" />
+    <Compile Include="DataBase\Table\TblShopSlotOpen.cs" />
+    <Compile Include="Util\ExtensionMethods.cs" />
+    <Compile Include="Handler\Internal\InternalHandler.LBD.cs" />
+    <Compile Include="Handler\Internal\InternalHandler.LDC.cs" />
+    <Compile Include="Handler\User\UserHandler.Deck.cs" />
+    <Compile Include="Handler\User\UserHandler.Login.cs" />
+    <Compile Include="Handler\User\UserHandler.Trade.cs" />
+    <Compile Include="Handler\User\UserHandler.Shop.cs" />
+    <Compile Include="LBD\Define\Body.cs" />
+    <Compile Include="LBD\Define\Define.cs" />
+    <Compile Include="LBD\Define\Respones.cs" />
+    <Compile Include="LBD\Manager\LBDApiManager.cs" />
+    <Compile Include="LBD\Define\TransactionResultData.cs" />
+    <Compile Include="LBD\Manager\LBDApiManager.Func.cs" />
+    <Compile Include="LBD\Manager\LBDApiManager.TokenTypeInfo.cs" />
+    <Compile Include="LBD\Msg\LBDBaseMsg.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_AddTokenParent.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_CommitUserRequest.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_GetComposableToken.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_GetProxy.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_GetUser.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_IssueServiceTokenTransfer.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_BurnFungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_MintFungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_MultiMintNonFungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_RemoveTokenParent.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_RequestProxy.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenBalancesOf_Fungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenBalancesOf_NonFungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenBalancesOf_ServiceToken.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenIssue.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenTypeBalancesOf_NonFungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenTypeInfo_Fungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenTypeInfo_NonFungible.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TokenTypeInfo_ServiceToken.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TransactionHash.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_TransferServiceToken.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_UserId_Fungible_Transfer.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_UserId_NonFungible_Transfer.cs" />
+    <Compile Include="LBD\Msg\LBDMsg_Wallet_Fungible_Transfer.cs" />
+    <Compile Include="LBD\Util\Nonce.cs" />
+    <Compile Include="LBD\Util\Signature.cs" />
+    <Compile Include="LBD\Util\UnixTime.cs" />
+    <Compile Include="LBD\Manager\UriManager.cs" />
+    <Compile Include="LBD\Manager\UriType.cs" />
+    <Compile Include="DataBase\Repository\IUser.cs" />
+    <Compile Include="DataBase\Repository\User.cs" />
+    <Compile Include="DataBase\Table\TblUser.cs" />
+    <Compile Include="Handler\Http\DispatchData.cs" />
+    <Compile Include="Handler\Http\HttpMessageDispatcher.cs" />
+    <Compile Include="Handler\Internal\InternalMessageDispatcher.cs" />
+    <Compile Include="Handler\Http\HttpHandler.cs" />
+    <Compile Include="Handler\Internal\InternalHandler.cs" />
+    <Compile Include="Handler\User\UserHandler.cs" />
+    <Compile Include="Handler\User\UserMessageDispatcher.cs" />
+    <Compile Include="LDC\Define\Respones.cs" />
+    <Compile Include="LDC\Manager\LDCApiManager.cs" />
+    <Compile Include="LDC\Manager\LDCApiManager.Func.cs" />
+    <Compile Include="LDC\Manager\UriManager.cs" />
+    <Compile Include="LDC\Msg\LDCBaseMsg.cs" />
+    <Compile Include="LDC\Msg\LDCMsg_GetProfile.cs" />
+    <Compile Include="LDC\Msg\LDCMsg_VerifyAccessToken.cs" />
+    <Compile Include="LDC\Manager\UriType.cs" />
+    <Compile Include="Logic\Shop\CardShopSlot.cs" />
+    <Compile Include="Logic\Shop\Currency.cs" />
+    <Compile Include="Logic\Shop\CurrencyShopSlot.cs" />
+    <Compile Include="Logic\Shop\EtcShopSlot.cs" />
+    <Compile Include="Logic\Shop\GCurrency.cs" />
+    <Compile Include="Logic\Shop\ShopSlot.cs" />
+    <Compile Include="Logic\Shop\TCurrency.cs" />
+    <Compile Include="Network\Http\HttpManager.cs" />
+    <Compile Include="Util\Timer.cs" />
+    <Compile Include="User\InternalMsg\ErrorCode.cs" />
+    <Compile Include="User\InternalMsg\InternalBaseMsg.cs" />
+    <Compile Include="Network\Tcp\NetMessage.cs" />
+    <Compile Include="Network\Tcp\NetPacketProcessor.cs" />
+    <Compile Include="Network\Tcp\NetServer.cs" />
+    <Compile Include="Network\Tcp\NetServer.Timer.cs" />
+    <Compile Include="Network\Tcp\Packet.cs" />
+    <Compile Include="Setting\ProgramSetting.cs" />
+    <Compile Include="Setting\ProgramSettingDefine.cs" />
+    <Compile Include="TCGGameSrv.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TCGGameSrv.InitApiManager.cs" />
+    <Compile Include="TCGGameSrv.InitDatabase.cs" />
+    <Compile Include="TCGGameSrv.InitResource.cs" />
+    <Compile Include="TCGGameSrv.InitTcp.cs" />
+    <Compile Include="TCGGameSrv.HttpServer.cs" />
+    <Compile Include="User\Define\Define.cs" />
+    <Compile Include="User\InternalMsg\IntlMsg_BuyerGiveGoods.cs" />
+    <Compile Include="User\InternalMsg\IntlMsg_SellerPayments.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_GetComposableToken.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_GetProxy.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_GetUser.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_TokenBalancesOf_Fungible.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_TokenBalancesOf_NonFungible.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_TokenBalancesOf_ServiceToken.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_TokenTypeBalancesOf_NonFungible.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_TransactionError.cs" />
+    <Compile Include="User\InternalMsg\LDC\IntlMsg_Authorization.cs" />
+    <Compile Include="User\InternalMsg\LBD\IntlMsg_TransactionHash.cs" />
+    <Compile Include="User\InternalMsg\LDC\IntlMsg_GetProfile.cs" />
+    <Compile Include="User\InternalMsg\LDC\IntlMsg_VerifyAccessToken.cs" />
+    <Compile Include="Logic\Tradeing\TradeData.cs" />
+    <Compile Include="Logic\Tradeing\TradingManager.cs" />
+    <Compile Include="User\User.Card.cs" />
+    <Compile Include="User\User.cs" />
+    <Compile Include="User\User.Currency.cs" />
+    <Compile Include="User\User.Deck.cs" />
+    <Compile Include="User\User.Info.cs" />
+    <Compile Include="User\User.Login.cs" />
+    <Compile Include="User\User.Shop.cs" />
+    <Compile Include="User\User.TImer.cs" />
+    <Compile Include="User\User.Trade.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\CommonLib\HttpMsg\HttpMsg.csproj">
+      <Project>{8da625ac-e229-4251-8033-22b7440d4a39}</Project>
+      <Name>HttpMsg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CommonLib\TcpMsg\TcpMsg.csproj">
+      <Project>{2578f4b2-15cc-4fd9-b766-115d76c81ce3}</Project>
+      <Name>TcpMsg</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
